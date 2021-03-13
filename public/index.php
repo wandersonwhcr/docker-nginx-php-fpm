@@ -9,7 +9,17 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = AppFactory::create();
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    return $response;
+    $payload = json_encode([
+        'name' => 'wandersonwhcr/hello',
+        'description' => 'Hello, World!',
+        'version' => '1.0.0-alpha',
+    ]);
+
+    $response->getBody()
+        ->write($payload);
+
+    return $response
+        ->withHeader('Content-Type', 'application/json');
 });
 
 $app->run();
