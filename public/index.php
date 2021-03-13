@@ -22,4 +22,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
         ->withHeader('Content-Type', 'application/json');
 });
 
+$app->addRoutingMiddleware();
+$app->addErrorMiddleware(true, true, true);
+
 $app->run();
