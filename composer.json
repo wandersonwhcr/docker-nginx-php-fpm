@@ -1,0 +1,7 @@
+{
+    "name": "wandersonwhcr/hello",
+    "description": "Hello, World!",
+    "type": "project",
+    "license": "MIT",
+    "require": {}
+}

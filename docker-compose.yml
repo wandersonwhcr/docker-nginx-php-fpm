@@ -11,7 +11,8 @@ services:
     - ".:/var/www/html"
 
   php-fpm:
-    image: "php:8.0-fpm"
+    build: "./docker/php-fpm"
+    user: "${UID}:${GID}"
     ports:
     - "9000"
     volumes:
