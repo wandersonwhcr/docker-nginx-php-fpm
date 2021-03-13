@@ -3,8 +3,16 @@ version: "3"
 services:
 
   nginx:
-    image: nginx:1.19
+    image: "nginx:1.19"
     ports:
     - "80"
     volumes:
     - "./docker/nginx/templates:/etc/nginx/templates"
+    - ".:/var/www/html"
+
+  php-fpm:
+    image: "php:8.0-fpm"
+    ports:
+    - "9000"
+    volumes:
+    - ".:/var/www/html"
