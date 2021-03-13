@@ -3,5 +3,7 @@
     "description": "Hello, World!",
     "type": "project",
     "license": "MIT",
-    "require": {}
+    "require": {
+        "slim/slim": "^4.7"
+    }
 }
