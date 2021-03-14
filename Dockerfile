@@ -10,7 +10,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 COPY ./composer.* ./
 
-RUN composer install
+RUN composer install \
+    && find /usr/bin/composer -print -delete \
+    && apk del unzip
 
 COPY . .
 
