@@ -2,7 +2,7 @@
 .env
 .git
 .gitignore
-docker
+docker-compose
 docker-compose.yml
 Dockerfile
 vendor

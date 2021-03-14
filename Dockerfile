@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-alpine AS builder
+FROM php:8.0-fpm-alpine
 
 ENV COMPOSER_CACHE_DIR /tmp
 
@@ -14,6 +14,4 @@ RUN composer install
 
 COPY . .
 
-FROM php:8.0-fpm-alpine
-
-COPY --from=builder /var/www/html /var/www/html
+USER www-data:www-data

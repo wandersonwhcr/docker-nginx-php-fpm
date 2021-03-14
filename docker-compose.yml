@@ -7,11 +7,11 @@ services:
     ports:
     - "80"
     volumes:
-    - "./docker/nginx/templates:/etc/nginx/templates"
+    - "./docker-compose/nginx/templates:/etc/nginx/templates"
     - ".:/var/www/html"
 
   php-fpm:
-    build: "./docker/php-fpm"
+    build: "./docker-compose/php-fpm"
     user: "${UID}:${GID}"
     ports:
     - "9000"
