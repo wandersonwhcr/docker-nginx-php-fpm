@@ -19,7 +19,7 @@ services:
     image: "nginx:1.19-alpine"
     labels:
     - "traefik.enable=true"
-    - "traefik.http.routers.default.rule=Host(`${ROMANS_HOSTNAME:-localhost}`)"
+    - "traefik.http.routers.default.rule=Host(`${PHP_HOSTNAME:-localhost}`)"
     - "traefik.port=80"
     ports:
     - "80"
