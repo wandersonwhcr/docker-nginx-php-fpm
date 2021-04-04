@@ -11,7 +11,10 @@ services:
     - ".:/var/www/html"
 
   php-fpm:
-    build: "./docker-compose/php-fpm"
+    build:
+      context: "./docker-compose/php-fpm"
+      args:
+        PHP_VERSION: "8.0"
     user: "${UID}:${GID}"
     ports:
     - "9000"
