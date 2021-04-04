@@ -7,8 +7,8 @@ services:
     ports:
     - "80"
     volumes:
-    - "./docker-compose/nginx/templates:/etc/nginx/templates"
-    - ".:/var/www/html"
+    - "./docker-compose/nginx/templates:/etc/nginx/templates:ro"
+    - ".:/var/www/html:ro"
 
   php-fpm:
     build:
