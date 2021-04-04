@@ -6,7 +6,7 @@ ENV COMPOSER_CACHE_DIR /tmp
 
 COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
 
-RUN apk add unzip
+RUN apk add --no-cache unzip
 
 COPY ./composer.* ./
 
