@@ -11,10 +11,12 @@ RUN apk add unzip \
 
 COPY ./composer.* ./
 
-RUN composer install \
-    && find /usr/bin/composer -print -delete \
-    && apk del unzip
+RUN composer install --no-dev
 
 COPY . .
+
+RUN composer install --no-dev --optimize-autoloader --classmap-authoritative \
+    && find /usr/bin/composer -print -delete \
+    && apk del unzip
 
 USER www-data:www-data
