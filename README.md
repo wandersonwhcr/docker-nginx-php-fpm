@@ -1,6 +1,6 @@
 # docker-nginx-php-fpm
 
-Docker + (Traefik +) Nginx + PHP-FPM = The Right Way
+Docker (+ Traefik) + NGINX + PHP-FPM = The Right Way
 
 ## Run
 
