@@ -1,6 +1,6 @@
 ARG PHP_VERSION=8.0
 
-FROM php:${PHP_VERSION}-fpm-alpine
+FROM php:${PHP_VERSION}-fpm-alpine AS builder
 
 ENV COMPOSER_CACHE_DIR /tmp
 
@@ -15,8 +15,10 @@ RUN composer install --no-dev
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader --classmap-authoritative \
-    && find /usr/bin/composer -print -delete \
-    && apk del unzip
+RUN composer install --no-dev --optimize-autoloader --classmap-authoritative
+
+FROM php:${PHP_VERSION}-fpm-alpine
+
+COPY --from=builder /var/www/html /var/www/html
 
 USER www-data:www-data
