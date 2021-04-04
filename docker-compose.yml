@@ -31,7 +31,7 @@ services:
     build:
       context: "./docker-compose/php-fpm"
       args:
-        PHP_VERSION: "8.0"
+        PHP_VERSION: "${PHP_VERSION:-8.0}"
     user: "${UID:-1000}:${GID:-1000}"
     ports:
     - "9000"
