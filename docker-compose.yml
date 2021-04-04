@@ -32,7 +32,7 @@ services:
       context: "./docker-compose/php-fpm"
       args:
         PHP_VERSION: "8.0"
-    user: "${UID}:${GID}"
+    user: "${UID:-1000}:${GID:-1000}"
     ports:
     - "9000"
     volumes:
