@@ -28,3 +28,6 @@ RUN apk add --no-cache fcgi \
     && find /usr/src -type f -name 'php*' -print -delete
 
 USER www-data:www-data
+
+HEALTHCHECK --interval=5s \
+    CMD php-fpm-healthcheck || exit 1
