@@ -18,3 +18,11 @@ docker-compose up --detach \
 ```
 docker build . --tag wandersonwhcr/hello
 ```
+
+## Deployment
+
+* Kubernetes
+
+```
+kubectl apply --filename ./kubernetes/ --recursive
+```
