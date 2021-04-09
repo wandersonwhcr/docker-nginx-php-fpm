@@ -47,3 +47,7 @@ docker run \
 ```
 kubectl apply --filename ./kubernetes/ --recursive
 ```
+
+## References
+
+* [renatomefi/php-fpm-healthcheck](https://github.com/renatomefi/php-fpm-healthcheck) POSIX sh Script to HealthCheck PHP-FPM
