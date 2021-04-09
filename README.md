@@ -22,5 +22,5 @@ docker build . --tag wandersonwhcr/hello
 ## Deployment
 
 ```
-kubectl apply --filename kubernetes --recursive
+kubectl apply --filename ./kubernetes/ --recursive
 ```
