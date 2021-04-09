@@ -21,8 +21,6 @@ services:
     - "traefik.enable=true"
     - "traefik.http.routers.default.rule=Host(`${PHP_HOSTNAME:-localhost}`)"
     - "traefik.port=80"
-    ports:
-    - "80"
     volumes:
     - "./docker-compose/nginx/templates:/etc/nginx/templates:ro"
     - ".:/var/www/html:ro"
@@ -33,7 +31,5 @@ services:
       args:
         PHP_VERSION: "${PHP_VERSION:-8.0}"
     user: "${UID:-1000}:${GID:-1000}"
-    ports:
-    - "9000"
     volumes:
     - ".:/var/www/html"
