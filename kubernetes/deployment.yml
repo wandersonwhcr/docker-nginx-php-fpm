@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  selector:
+    matchLabels:
+      name: hello
+  template:
+    metadata:
+      labels:
+        name: hello
+    spec:
+      containers:
+      - name: php-fpm
+        image: wandersonwhcr/hello
+        ports:
+        - containerPort: 9000
+      - name: nginx
+        image: nginx:1.19
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: hello-nginx-templates
+          mountPath: /etc/nginx/templates
+      volumes:
+      - name: hello-nginx-templates
+        configMap:
+          name: hello-nginx-templates
