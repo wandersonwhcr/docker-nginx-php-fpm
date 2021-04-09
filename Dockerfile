@@ -20,6 +20,11 @@ FROM php:${PHP_VERSION}-fpm-alpine
 
 COPY --from=builder /var/www/html /var/www/html
 
-RUN find /usr/src -type f -name 'php*' -print -delete
+RUN apk add --no-cache fcgi \
+    && echo "pm.status_path = /status" >> /usr/local/etc/php-fpm.d/zz-docker.conf \
+    && curl --silent --remote-name https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/v0.5.0/php-fpm-healthcheck \
+    && install --owner root --group root --mode 755 php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck \
+    && rm -rf php-fpm-healthcheck \
+    && find /usr/src -type f -name 'php*' -print -delete
 
 USER www-data:www-data
