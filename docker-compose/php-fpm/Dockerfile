@@ -4,7 +4,7 @@ FROM php:${PHP_VERSION}-fpm-alpine
 
 ENV COMPOSER_CACHE_DIR /tmp
 
-COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
 
 RUN apk add --no-cache fcgi unzip \
     && echo "pm.status_path = /status" >> /usr/local/etc/php-fpm.d/zz-docker.conf \

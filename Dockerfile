@@ -4,7 +4,7 @@ FROM php:${PHP_VERSION}-fpm-alpine AS builder
 
 ENV COMPOSER_CACHE_DIR /tmp
 
-COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
 
 RUN apk add --no-cache unzip
 
