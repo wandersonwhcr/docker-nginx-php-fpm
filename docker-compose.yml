@@ -25,7 +25,6 @@ services:
     - "80"
     volumes:
     - "./docker-compose/nginx/templates:/etc/nginx/templates:ro"
-    - ".:/var/www/html:ro"
 
   php-fpm:
     build:
