@@ -16,6 +16,11 @@ spec:
         image: wandersonwhcr/hello
         ports:
         - containerPort: 9000
+        livenessProbe:
+          exec:
+            command: ["php-fpm-healthcheck"]
+          initialDelaySeconds: 1
+          periodSeconds: 5
       - name: nginx
         image: nginx:1.19
         ports:
